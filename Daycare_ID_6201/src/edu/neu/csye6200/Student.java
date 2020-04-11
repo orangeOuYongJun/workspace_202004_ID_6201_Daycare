@@ -6,22 +6,17 @@ public class Student extends Person {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 
-	public Student(String stuId, String name, int classroomID, int teacherID) {
+	public Student(String name, int classroomID, int teacherID, int personID) {
 		super();
-		this.stuId = stuId;
+		this.setPersonID(personID);
 		this.name = name;
 		this.classroomID = classroomID;
 		this.teacherID = teacherID;
 	}
 
-	public String getStuId() {
-		return stuId;
-	}
-
-	public void setStuId(String stuId) {
-		this.stuId = stuId;
-	}
 
 	public int getClassroomID() {
 		return classroomID;
@@ -47,20 +42,7 @@ public class Student extends Person {
 		this.teacherID = teacherID;
 	}
 
-
-	public String getPwd() {
-		return pwd;
-	}
-
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
-	}
-
-
-	// private String stuId;
-	private String stuId;
 	private String name;
 	private int classroomID;
 	private int teacherID;
-	private String pwd = "000000";
 }

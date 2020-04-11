@@ -10,20 +10,12 @@ public class Teacher extends Person {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Teacher(int teacherID, String name, int classroomID, List<Student> students) {
+	public Teacher(int personID, String name, int classroomID, List<Student> students) {
 		super();
-		this.teacherID = teacherID;
+		this.setPersonID(personID);
 		this.name = name;
 		this.classroomID = classroomID;
 		this.students = students;
-	}
-
-	public int getTeacherID() {
-		return teacherID;
-	}
-
-	public void setTeacherID(int teacherID) {
-		this.teacherID = teacherID;
 	}
 
 	public String getName() {
@@ -50,7 +42,6 @@ public class Teacher extends Person {
 		this.students = students;
 	}
 
-	private int teacherID;
 	private String name;
 	private int classroomID;
 	private List<Student> students = new ArrayList<Student>();

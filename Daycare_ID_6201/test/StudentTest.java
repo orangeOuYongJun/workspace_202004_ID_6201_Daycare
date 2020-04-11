@@ -8,7 +8,6 @@ class StudentTest {
 
 	@Test
 	void test() {
-		System.out.println(new Student("sadf", "sdf", 23, 12).getPwd());
 
 	}
 }

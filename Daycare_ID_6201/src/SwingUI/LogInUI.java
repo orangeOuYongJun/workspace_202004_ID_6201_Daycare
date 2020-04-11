@@ -11,6 +11,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
+
+import edu.neu.csye6200.DaycareSingleton;
+
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -50,67 +53,69 @@ public class LogInUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 446, 372);;
+		frame.setBounds(100, 100, 446, 372);
+		;
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		JLabel lblUsername = new JLabel("Username:");
-		
+		JLabel lblUsername = new JLabel("UserID:");
+
 		JLabel lblPassword = new JLabel("Password:");
-		
+
 		usertxt = new JTextField();
 		usertxt.setColumns(11);
-		
+
 		passwordtxt = new JPasswordField();
-		
+
 		JButton btnLogin = new JButton("Login");
 		btnLogin.setBackground(Color.ORANGE);
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				boolean isLogin = validLoginData(usertxt.getText(), passwordtxt.getPassword());
+
 				ClassroomUI homepage = new ClassroomUI();
 //				homepage.setVisible(true);
 				frame.setVisible(false);
 			}
 		});
-		
+
 		JLabel lblDaycare = new JLabel("DayCare");
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(110)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblUsername)
-								.addComponent(lblPassword))
-							.addGap(18)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(passwordtxt)
-								.addComponent(usertxt)
-								.addComponent(lblDaycare)))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(168)
-							.addComponent(btnLogin)))
-					.addContainerGap(122, Short.MAX_VALUE))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(71)
-					.addComponent(lblDaycare)
-					.addGap(54)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblUsername)
-						.addComponent(usertxt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(27)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblPassword)
-						.addComponent(passwordtxt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-					.addComponent(btnLogin)
-					.addGap(47))
-		);
-		
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
+				.createSequentialGroup()
+				.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup().addGap(110)
+								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING).addComponent(lblUsername)
+										.addComponent(lblPassword))
+								.addGap(18)
+								.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+										.addComponent(passwordtxt).addComponent(usertxt).addComponent(lblDaycare)))
+						.addGroup(groupLayout.createSequentialGroup().addGap(168).addComponent(btnLogin)))
+				.addContainerGap(122, Short.MAX_VALUE)));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
+				.createSequentialGroup().addGap(71).addComponent(lblDaycare).addGap(54)
+				.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE).addComponent(lblUsername).addComponent(
+						usertxt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+				.addGap(27)
+				.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE).addComponent(lblPassword).addComponent(
+						passwordtxt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+				.addPreferredGap(ComponentPlacement.RELATED, 54, Short.MAX_VALUE).addComponent(btnLogin).addGap(47)));
+
 		frame.getContentPane().setLayout(groupLayout);
 //		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 	}
+
+	public boolean validLoginData(String userName, char[] pwd) {
+
+		if (String.valueOf(pwd).equals("000000")) {
+			System.out.println("login success");
+			DaycareSingleton.getInstance().setUserID(Integer.valueOf(userName));
+			return true;
+		}
+//		else if (condition) {
+//			
+//		}
+
+		return false;
+	}
+
 }
