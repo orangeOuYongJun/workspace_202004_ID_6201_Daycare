@@ -41,7 +41,7 @@ public class ClassroomUI {
 	    public void itemStateChanged(ItemEvent e) {
 	       
 	        if (e.getStateChange() == ItemEvent.SELECTED) {
-	            System.out.println("Ñ¡ÖÐ: " + comboBox.getSelectedIndex() + " = " + comboBox.getSelectedItem());
+	            System.out.println("Ñ¡ï¿½ï¿½: " + comboBox.getSelectedIndex() + " = " + comboBox.getSelectedItem());
 	        }
 	    }
 	});
