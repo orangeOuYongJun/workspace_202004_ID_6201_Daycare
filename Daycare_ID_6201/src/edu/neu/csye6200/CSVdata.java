@@ -21,7 +21,7 @@ public class CSVdata {
 				// Student stu = studentFactory.getObject(inputLine);
 				Student stu = getObject(inputLine);
 				students.add(stu);
-			}
+			} 
 		} catch (IOException e) {
 			// catch IOException (and implicitly FileNotFoundException)
 			e.printStackTrace();

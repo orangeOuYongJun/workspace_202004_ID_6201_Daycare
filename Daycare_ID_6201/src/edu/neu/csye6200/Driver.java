@@ -18,7 +18,7 @@ public class Driver {
 		
 		
 		//test read studentData
-		// System.out.println(CSVdata.readStudentData());
+		System.out.println(CSVdata.readStudentData());
 
 		// test read teacherData
 
