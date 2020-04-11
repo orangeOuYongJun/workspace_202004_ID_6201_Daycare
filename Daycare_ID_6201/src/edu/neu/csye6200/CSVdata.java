@@ -75,17 +75,18 @@ public class CSVdata {
 	// }
 
 	public static List<Teacher> readTeacherData() {
-		// int i = 9;
+		// int i = 10;
 		List<Teacher> teachers = new ArrayList<>();
 		try (BufferedReader inLine = new BufferedReader(new FileReader("./teacherCSV.csv"));) {
 			String inputLine = null; // read one line from file at a time
 			while ((inputLine = inLine.readLine()) != null) { 
 				// while (i > 0) {
+					// inputLine = inLine.readLine();
 
 				Teacher teacher = new Teacher(0, null, null, 0);
 				System.out.println(inputLine);
 				String[] arr = inputLine.split(",");
-				System.out.println(arr[1]);
+				// System.out.println(arr[1]);
 				// student.setStuId(Integer.parseInt(arr[0]));
 				teacher.setTeacherID(Integer.parseInt(arr[0]));
 				teacher.setFirstName(arr[1]);
@@ -105,8 +106,8 @@ public class CSVdata {
 			// catch IOException (and implicitly FileNotFoundException)
 			e.printStackTrace();
 		}
-		System.out.println("shit!");
-		System.out.println(teachers);
+		// System.out.println("shit!");
+		// System.out.println(teachers);
 		return teachers;
 	}
 
