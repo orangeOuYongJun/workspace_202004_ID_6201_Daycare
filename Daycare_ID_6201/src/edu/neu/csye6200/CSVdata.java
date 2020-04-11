@@ -37,7 +37,7 @@ public class CSVdata {
 		// parentFirstName,
 		// String parentLastName, String address, String parentPhone, boolean
 		// vaccineState
-		Student student = new Student(null, 0, null, null, null, null, null, null,null);
+		Student student = new Student(null, 0, null, null, null, null, null, null, null);
 		String[] arr = csv.split(",");
 		// student.setStuId(Integer.parseInt(arr[0]));
 		student.setStuId(arr[0]);
@@ -54,22 +54,60 @@ public class CSVdata {
 	}
 
 	// public static void writeStudentFile(List<Student> students) {
-	// 	try (BufferedWriter out = new BufferedWriter(new FileWriter("./studentCSV.csv"))) {
-	// 		for (Student st : students) {
-	// 			String idString = String.valueOf(st.getStuId());
-	// 			String ageString = String.valueOf(st.getAge());
-	// 			String stString = idString + "," + ageString + "," + st.getFirstName() + "," + st.getLastName() + ","
-	// 					+ st.getParentFirstName() + "," + st.getParentLastName() + "," + st.getAddress() + ","
-	// 					+ st.getParentPhone();
+	// try (BufferedWriter out = new BufferedWriter(new
+	// FileWriter("./studentCSV.csv"))) {
+	// for (Student st : students) {
+	// String idString = String.valueOf(st.getStuId());
+	// String ageString = String.valueOf(st.getAge());
+	// String stString = idString + "," + ageString + "," + st.getFirstName() + ","
+	// + st.getLastName() + ","
+	// + st.getParentFirstName() + "," + st.getParentLastName() + "," +
+	// st.getAddress() + ","
+	// + st.getParentPhone();
 
-	// 			out.write(stString);
-	// 			out.newLine();
-	// 		}
-	// 		out.flush();
-	// 	} catch (Exception e) {
-	// 		e.printStackTrace();
-	// 	}
+	// out.write(stString);
+	// out.newLine();
+	// }
+	// out.flush();
+	// } catch (Exception e) {
+	// e.printStackTrace();
+	// }
 	// }
 
+	public static List<Teacher> readTeacherData() {
+		// int i = 9;
+		List<Teacher> teachers = new ArrayList<>();
+		try (BufferedReader inLine = new BufferedReader(new FileReader("./teacherCSV.csv"));) {
+			String inputLine = null; // read one line from file at a time
+			while ((inputLine = inLine.readLine()) != null) { 
+				// while (i > 0) {
+
+				Teacher teacher = new Teacher(0, null, null, 0);
+				System.out.println(inputLine);
+				String[] arr = inputLine.split(",");
+				System.out.println(arr[1]);
+				// student.setStuId(Integer.parseInt(arr[0]));
+				teacher.setTeacherID(Integer.parseInt(arr[0]));
+				teacher.setFirstName(arr[1]);
+				teacher.setLastName(arr[2]);
+				teacher.setAge(Integer.parseInt(arr[3]));
+				// String[] fields = inputLine.split(",");
+				// int id = new Integer(fields[0]);
+				// String fname = fields[1];
+				// String lname = fields[2];
+				// int age = new Integer(fields[3]);
+				// System.out.println(fname);
+
+				teachers.add(teacher);
+				// i--;
+			}
+		} catch (IOException e) {
+			// catch IOException (and implicitly FileNotFoundException)
+			e.printStackTrace();
+		}
+		System.out.println("shit!");
+		System.out.println(teachers);
+		return teachers;
+	}
 
 }

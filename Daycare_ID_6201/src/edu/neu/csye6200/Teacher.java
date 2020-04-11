@@ -10,11 +10,9 @@ public class Teacher extends Person {
 
 	}
 
-	public Teacher(int teacherID,  String firstName, String lastName, int age, String name, int classroomID) {
+	public Teacher(int teacherID,  String firstName, String lastName, int age) {
 		super(firstName, lastName, age);
 		this.teacherID = teacherID;
-		this.name = name;
-		this.classroomID = classroomID;
 	}
 
 	public int getTeacherID() {
@@ -24,33 +22,13 @@ public class Teacher extends Person {
 	public void setTeacherID(int teacherID) {
 		this.teacherID = teacherID;
 	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getClassroomID() {
-		return classroomID;
-	}
-
-	public void setClassroomID(int classroomID) {
-		this.classroomID = classroomID;
-	}
-
-	public int getCredits() {
-		return Credits;
-	}
-
-	public void setCredits(int credit) {
-		this.Credits = credit;
-	}
-
 	private int teacherID;
-	private String name;
-	private int Credits;
-	private int classroomID;
+	@Override
+	public String toString() {
+		return "Teacher [teacherID=" + teacherID + "]";
+	}
+	
+	
+
+	
 }
