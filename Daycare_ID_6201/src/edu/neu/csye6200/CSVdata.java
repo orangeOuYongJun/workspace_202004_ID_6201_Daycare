@@ -83,9 +83,9 @@ public class CSVdata {
 				// while (i > 0) {
 
 				Teacher teacher = new Teacher(0, null, null, 0);
-				System.out.println(inputLine);
+				// System.out.println(inputLine);
 				String[] arr = inputLine.split(",");
-				System.out.println(arr[1]);
+				// System.out.println(arr[1]);
 				// student.setStuId(Integer.parseInt(arr[0]));
 				teacher.setTeacherID(Integer.parseInt(arr[0]));
 				teacher.setFirstName(arr[1]);
@@ -105,8 +105,8 @@ public class CSVdata {
 			// catch IOException (and implicitly FileNotFoundException)
 			e.printStackTrace();
 		}
-		System.out.println("shit!");
-		System.out.println(teachers);
+		// System.out.println("shit!");
+		// System.out.println(teachers);
 		return teachers;
 	}
 
