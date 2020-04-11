@@ -3,7 +3,15 @@ package edu.neu.csye6200;
 import java.util.ArrayList;
 import java.util.List;
 
+//finish
+
 public class Group extends AbstractGroup {
+
+	private int groupId;
+	private int groupSize;
+	private Teacher teacher;
+	private int classRoomID;
+	private List<Student> studentsList = new ArrayList<>();
 	
 	public Group() {
 		super();
@@ -75,10 +83,4 @@ public class Group extends AbstractGroup {
 	public void setStudentsList(List<Student> studentsList) {
 		this.studentsList = studentsList;
 	}
-
-	private int groupId;
-	private int groupSize;
-	private Teacher teacher;
-	private int classRoomID;
-	private List<Student> studentsList = new ArrayList<>();
 }
