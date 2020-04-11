@@ -47,9 +47,20 @@ public class Student extends Person {
 		this.teacherID = teacherID;
 	}
 
+
+	public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+
 	// private String stuId;
 	private String stuId;
 	private String name;
 	private int classroomID;
 	private int teacherID;
+	private String pwd = "000000";
 }
