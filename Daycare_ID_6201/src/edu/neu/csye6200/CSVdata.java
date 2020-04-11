@@ -37,11 +37,7 @@ public class CSVdata {
 		// parentFirstName,
 		// String parentLastName, String address, String parentPhone, boolean
 		// vaccineState
-<<<<<<< HEAD
-		Student student = new Student(null, 0, null, null, null, null, null, null,null);
-=======
 		Student student = new Student(null, 0, null, null, null, null, null, null, null);
->>>>>>> b80367b3e26fc72423fc508878dea96336f56db6
 		String[] arr = csv.split(",");
 		// student.setStuId(Integer.parseInt(arr[0]));
 		student.setStuId(arr[0]);
@@ -58,7 +54,6 @@ public class CSVdata {
 	}
 
 	// public static void writeStudentFile(List<Student> students) {
-<<<<<<< HEAD
 	// 	try (BufferedWriter out = new BufferedWriter(new FileWriter("./studentCSV.csv"))) {
 	// 		for (Student st : students) {
 	// 			String idString = String.valueOf(st.getStuId());
@@ -76,26 +71,7 @@ public class CSVdata {
 	// 	}
 	// }
 
-=======
-	// try (BufferedWriter out = new BufferedWriter(new
-	// FileWriter("./studentCSV.csv"))) {
-	// for (Student st : students) {
-	// String idString = String.valueOf(st.getStuId());
-	// String ageString = String.valueOf(st.getAge());
-	// String stString = idString + "," + ageString + "," + st.getFirstName() + ","
-	// + st.getLastName() + ","
-	// + st.getParentFirstName() + "," + st.getParentLastName() + "," +
-	// st.getAddress() + ","
-	// + st.getParentPhone();
 
-	// out.write(stString);
-	// out.newLine();
-	// }
-	// out.flush();
-	// } catch (Exception e) {
-	// e.printStackTrace();
-	// }
-	// }
 
 	public static List<Teacher> readTeacherData() {
 		// int i = 9;
@@ -132,6 +108,5 @@ public class CSVdata {
 		System.out.println(teachers);
 		return teachers;
 	}
->>>>>>> b80367b3e26fc72423fc508878dea96336f56db6
 
 }

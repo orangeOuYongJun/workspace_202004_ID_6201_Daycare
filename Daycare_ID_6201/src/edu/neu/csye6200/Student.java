@@ -2,16 +2,8 @@ package edu.neu.csye6200;
 
 public class Student extends Person {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-	public Student() {
-		super();
-		// TODO Auto-generated constructor stub
-=======
-=======
->>>>>>> b80367b3e26fc72423fc508878dea96336f56db6
 
-
+	
 	// private String stuId;
 	private String stuId;
 	private String parentFirstName;
@@ -42,12 +34,10 @@ public class Student extends Person {
 
 	public void setStuId(String stuId) {
 		this.stuId = stuId;
->>>>>>> be1f6ebe90a75b07dede632e0f9f7bc37b66212f
 	}
 	
 	
 
-<<<<<<< HEAD
 	public Student(String name, int classroomID, int teacherID, int personID) {
 		super();
 		this.setPersonID(personID);
@@ -56,7 +46,6 @@ public class Student extends Person {
 		this.teacherID = teacherID;
 	}
 
-=======
 	public String getParentFirstName() {
 		return parentFirstName;
 	}
@@ -73,7 +62,6 @@ public class Student extends Person {
 	public void setParentLastName(String parentLastName) {
 		this.parentLastName = parentLastName;
 	}
->>>>>>> be1f6ebe90a75b07dede632e0f9f7bc37b66212f
 
 	public String getAddress() {
 		return address;
@@ -83,8 +71,7 @@ public class Student extends Person {
 		this.address = address;
 	}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 	public String getName() {
 		return name;
 	}
@@ -104,7 +91,9 @@ public class Student extends Person {
 	private String name;
 	private int classroomID;
 	private int teacherID;
-=======
+
+	
+
 	public String getParentPhone() {
 		return parentPhone;
 	}
@@ -121,24 +110,6 @@ public class Student extends Person {
 		this.vaccineState = vaccineState;
 	}
 
-=======
-	public String getParentPhone() {
-		return parentPhone;
-	}
-
-	public void setParentPhone(String parentPhone) {
-		this.parentPhone = parentPhone;
-	}
-
-	public String isVaccineState() {
-		return vaccineState;
-	}
-
-	public void setVaccineState(String vaccineState) {
-		this.vaccineState = vaccineState;
-	}
-
->>>>>>> b80367b3e26fc72423fc508878dea96336f56db6
 	@Override
 	public String toString() {
 		return "Student [stuId=" + stuId + ", parentFirstName=" + parentFirstName + ", parentLastName=" + parentLastName
@@ -146,9 +117,4 @@ public class Student extends Person {
 	}
 
 
-
-<<<<<<< HEAD
->>>>>>> be1f6ebe90a75b07dede632e0f9f7bc37b66212f
-=======
->>>>>>> b80367b3e26fc72423fc508878dea96336f56db6
 }

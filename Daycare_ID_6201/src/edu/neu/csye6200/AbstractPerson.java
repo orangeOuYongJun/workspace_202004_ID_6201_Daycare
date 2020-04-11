@@ -2,8 +2,7 @@ package edu.neu.csye6200;
 
 public abstract class AbstractPerson {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 	public String getName() {
 		return name;
 	}
@@ -12,13 +11,7 @@ public abstract class AbstractPerson {
 		this.name = name;
 	}
 
-	public int getAge() {
-		return age;
-	}
 
-	public void setAge(int age) {
-		this.age = age;
-	}
 
 	public int getPersonID() {
 		return personID;
@@ -41,11 +34,7 @@ public abstract class AbstractPerson {
 	private String name;
 	private int age;
 	private String pwd = "000000";
-=======
 
-=======
-
->>>>>>> b80367b3e26fc72423fc508878dea96336f56db6
 public abstract String getFirstName();
 	
 	public abstract void setFirstName(String firstName);
@@ -57,5 +46,4 @@ public abstract String getFirstName();
 	public abstract int getAge();
 	
 	public abstract void setAge(int age);
->>>>>>> be1f6ebe90a75b07dede632e0f9f7bc37b66212f
 }
