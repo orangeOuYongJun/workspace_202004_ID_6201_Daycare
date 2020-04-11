@@ -22,7 +22,7 @@ public class Driver {
 
 		// test read teacherData
 
-		System.out.println(CSVdata.readTeacherData());
+		// System.out.println(CSVdata.readTeacherData());
 		// CSVdata.readTeacherData();
 	}
 
