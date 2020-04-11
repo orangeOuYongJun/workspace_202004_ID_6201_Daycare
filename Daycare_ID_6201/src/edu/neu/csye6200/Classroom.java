@@ -1,16 +1,9 @@
 package edu.neu.csye6200;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Classroom extends AbstractClassroom {
-
-	public List<Group> getGroupsList() {
-		return groupsList;
-	}
-
-	public void setGroupsList(List<Group> groupsList) {
-		this.groupsList = groupsList;
-	}
+public class Classroom {
 
 	public int getRoomId() {
 		return roomId;
@@ -28,7 +21,25 @@ public class Classroom extends AbstractClassroom {
 		this.roomSize = roomSize;
 	}
 
+	public List<Teacher> getTeachers() {
+		return teachers;
+	}
+
+	public void setTeachers(List<Teacher> teachers) {
+		this.teachers = teachers;
+	}
+
+	public List<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
+
 	private int roomId;
 	private int roomSize;
-	private List<Group> groupsList;
+	private List<Teacher> teachers = new ArrayList<Teacher>();
+	private List<Student> students = new ArrayList<Student>();
+
 }

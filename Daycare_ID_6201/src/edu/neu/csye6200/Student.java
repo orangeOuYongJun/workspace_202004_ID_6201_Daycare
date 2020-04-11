@@ -2,39 +2,21 @@ package edu.neu.csye6200;
 
 public class Student extends Person {
 
-	public Student(String firstName, String lastName, int age) {
-		super(firstName, lastName, age);
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 
+	public Student(String name, int classroomID, int teacherID, int personID) {
+		super();
+		this.setPersonID(personID);
+		this.name = name;
+		this.classroomID = classroomID;
+		this.teacherID = teacherID;
 	}
 
-	public Student(String stuId, int age, String firstName, String lastName) {
-		super(firstName, lastName, age);
-		this.stuId = stuId;
-	}
-
-	public String getStuId() {
-		return stuId;
-	}
-
-	public void setStuId(String stuId) {
-		this.stuId = stuId;
-	}
-
-	public String getParentFirstName() {
-		return firstName;
-	}
-
-	public void setParentFirstName(String parentFirstName) {
-		this.firstName = parentFirstName;
-	}
-
-	public String getParentLastName() {
-		return lastName;
-	}
-
-	public void setParentLastName(String parentLastName) {
-		this.lastName = parentLastName;
-	}
 
 	public int getClassroomID() {
 		return classroomID;
@@ -44,27 +26,23 @@ public class Student extends Person {
 		this.classroomID = classroomID;
 	}
 
-	public int getGroupID() {
-		return groupID;
+	public String getName() {
+		return name;
 	}
 
-	public void setGroupID(int groupID) {
-		this.groupID = groupID;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public double getGpa() {
-		return gpa;
+	public int getTeacherID() {
+		return teacherID;
 	}
 
-	public void setGpa(double gpa) {
-		this.gpa = gpa;
+	public void setTeacherID(int teacherID) {
+		this.teacherID = teacherID;
 	}
 
-	// private String stuId;
-	private String stuId;
-	private double gpa;
-	private String firstName;
-	private String lastName;
+	private String name;
 	private int classroomID;
-	private int groupID;
+	private int teacherID;
 }

@@ -2,15 +2,41 @@ package edu.neu.csye6200;
 
 public abstract class AbstractPerson {
 
-	public abstract String getFirstName();
+	public String getName() {
+		return name;
+	}
 
-	public abstract void setFirstName(String firstName);
+	public void setName(String name) {
+		this.name = name;
+	}
 
-	public abstract String getLastName();
+	public int getAge() {
+		return age;
+	}
 
-	public abstract void setLastName(String lastName);
+	public void setAge(int age) {
+		this.age = age;
+	}
 
-	public abstract int getAge();
+	public int getPersonID() {
+		return personID;
+	}
 
-	public abstract void setAge(int age);
+	public void setPersonID(int personID) {
+		this.personID = personID;
+	}
+
+	public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+	// private String stuId;
+	private int personID;
+	private String name;
+	private int age;
+	private String pwd = "000000";
 }
