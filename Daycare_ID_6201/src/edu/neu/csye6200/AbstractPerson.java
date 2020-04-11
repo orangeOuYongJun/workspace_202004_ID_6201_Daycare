@@ -3,6 +3,7 @@ package edu.neu.csye6200;
 public abstract class AbstractPerson {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public String getName() {
 		return name;
 	}
@@ -42,6 +43,9 @@ public abstract class AbstractPerson {
 	private String pwd = "000000";
 =======
 
+=======
+
+>>>>>>> b80367b3e26fc72423fc508878dea96336f56db6
 public abstract String getFirstName();
 	
 	public abstract void setFirstName(String firstName);

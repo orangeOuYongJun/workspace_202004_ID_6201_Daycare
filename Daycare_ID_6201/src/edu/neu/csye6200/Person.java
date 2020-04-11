@@ -2,9 +2,12 @@ package edu.neu.csye6200;
 
 public class Person extends AbstractPerson {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	
 =======
+=======
+>>>>>>> b80367b3e26fc72423fc508878dea96336f56db6
 	private String firstName;
 	private String lastName;
 	private int age;
