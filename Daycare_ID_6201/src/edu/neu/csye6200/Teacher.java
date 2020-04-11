@@ -5,13 +5,13 @@ import java.util.List;
 
 public class Teacher extends Person {
 
-	public Teacher() {
-		super();
-		// TODO Auto-generated constructor stub
+	public Teacher(String firstName, String lastName, int age) {
+		super(firstName, lastName, age);
+
 	}
 
-	public Teacher(int teacherID, String name, int classroomID, List<Student> students) {
-		super();
+	public Teacher(int teacherID,  String firstName, String lastName, int age, String name, int classroomID, List<Student> students) {
+		super(firstName, lastName, age);
 		this.teacherID = teacherID;
 		this.name = name;
 		this.classroomID = classroomID;
