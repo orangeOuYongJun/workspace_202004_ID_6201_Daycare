@@ -84,7 +84,7 @@ public class CSVdata {
 					// inputLine = inLine.readLine();
 
 				Teacher teacher = new Teacher(0, null, null, 0);
-				System.out.println(inputLine);
+				// System.out.println(inputLine);
 				String[] arr = inputLine.split(",");
 				// System.out.println(arr[1]);
 				// student.setStuId(Integer.parseInt(arr[0]));
