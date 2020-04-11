@@ -10,12 +10,11 @@ public class Teacher extends Person {
 
 	}
 
-	public Teacher(int teacherID,  String firstName, String lastName, int age, String name, int classroomID, List<Student> students) {
+	public Teacher(int teacherID,  String firstName, String lastName, int age, String name, int classroomID) {
 		super(firstName, lastName, age);
 		this.teacherID = teacherID;
 		this.name = name;
 		this.classroomID = classroomID;
-		this.students = students;
 	}
 
 	public int getTeacherID() {
