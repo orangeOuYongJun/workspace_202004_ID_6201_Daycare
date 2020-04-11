@@ -3,7 +3,7 @@ package edu.neu.csye6200;
 public class Student extends Person {
 
 
-	
+	//finish
 	// private String stuId;
 	private String stuId;
 	private String parentFirstName;
