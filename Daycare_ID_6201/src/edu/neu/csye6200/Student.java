@@ -2,14 +2,30 @@ package edu.neu.csye6200;
 
 public class Student extends Person {
 
+
+
+	// private String stuId;
+	private String stuId;
+	private String parentFirstName;
+	private String parentLastName;
+	private String address;
+	private String parentPhone;
+	private String vaccineState;
 	public Student(String firstName, String lastName, int age) {
 		super(firstName, lastName, age);
 
 	}
 
-	public Student(String stuId, int age, String firstName, String lastName) {
+
+	public Student(String stuId, int age, String firstName, String lastName, String parentFirstName,
+			String parentLastName, String address, String parentPhone, String vaccineState) {
 		super(firstName, lastName, age);
 		this.stuId = stuId;
+		this.parentFirstName = parentFirstName;
+		this.parentLastName = parentLastName;
+		this.address = address;
+		this.parentPhone = parentPhone;
+		this.vaccineState = vaccineState;
 	}
 
 	public String getStuId() {
@@ -21,50 +37,52 @@ public class Student extends Person {
 	}
 
 	public String getParentFirstName() {
-		return firstName;
+		return parentFirstName;
 	}
 
 	public void setParentFirstName(String parentFirstName) {
-		this.firstName = parentFirstName;
+		this.parentFirstName = parentFirstName;
 	}
 
+
 	public String getParentLastName() {
-		return lastName;
+		return parentLastName;
 	}
 
 	public void setParentLastName(String parentLastName) {
-		this.lastName = parentLastName;
+		this.parentLastName = parentLastName;
 	}
 
-	public int getClassroomID() {
-		return classroomID;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setClassroomID(int classroomID) {
-		this.classroomID = classroomID;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public int getGroupID() {
-		return groupID;
+	public String getParentPhone() {
+		return parentPhone;
 	}
 
-	public void setGroupID(int groupID) {
-		this.groupID = groupID;
+	public void setParentPhone(String parentPhone) {
+		this.parentPhone = parentPhone;
 	}
 
-	public double getGpa() {
-		return gpa;
+	public String isVaccineState() {
+		return vaccineState;
 	}
 
-	public void setGpa(double gpa) {
-		this.gpa = gpa;
+	public void setVaccineState(String vaccineState) {
+		this.vaccineState = vaccineState;
 	}
 
-	// private String stuId;
-	private String stuId;
-	private double gpa;
-	private String firstName;
-	private String lastName;
-	private int classroomID;
-	private int groupID;
+	@Override
+	public String toString() {
+		return "Student [stuId=" + stuId + ", parentFirstName=" + parentFirstName + ", parentLastName=" + parentLastName
+				+ ", address=" + address + ", parentPhone=" + parentPhone + ", vaccineState=" + vaccineState + "]";
+	}
+
+
+
 }

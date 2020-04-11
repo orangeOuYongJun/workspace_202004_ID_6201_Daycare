@@ -7,6 +7,13 @@ public class Driver {
 		System.out.println("system runs....");
 		new secondui();
 		System.out.println("system done....");
+
+//		System.out.println("system runs����������....");
+//		System.out.println("zmz is here");
+		
+		
+		//test read studentData
+		// System.out.println(CSVdata.readStudentData());
 	}
 
 }
