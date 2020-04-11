@@ -21,8 +21,9 @@ public class Driver {
 		// System.out.println(CSVdata.readStudentData());
 
 		// test read teacherData
-		// System.out.println(CSVdata.readTeacherData());
-		CSVdata.readTeacherData();
+
+		System.out.println(CSVdata.readTeacherData());
+		// CSVdata.readTeacherData();
 	}
 
 }
