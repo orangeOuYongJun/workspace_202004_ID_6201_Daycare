@@ -49,6 +49,7 @@ public class CSVdata {
 		student.setAddress(arr[6]);
 		student.setParentPhone(arr[7]);
 		student.setVaccineState(arr[8]);
+		student.setPwd(arr[9]);
 
 		return student;
 	}
@@ -91,6 +92,7 @@ public class CSVdata {
 				teacher.setFirstName(arr[1]);
 				teacher.setLastName(arr[2]);
 				teacher.setAge(Integer.parseInt(arr[3]));
+				teacher.setPwd(arr[4]);
 				// String[] fields = inputLine.split(",");
 				// int id = new Integer(fields[0]);
 				// String fname = fields[1];
