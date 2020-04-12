@@ -136,7 +136,7 @@ public class ImmunizationSituationUI {
 					singleList.add(stu.getFirstName());
 					singleList.add(stu.getLastName());
 					singleList.add(stu.getAddress());
-					singleList.add(String.valueOf(stu.getStuId()));
+					singleList.add(String.valueOf(stu.getAge()));
 					if (UpdateVaccineStatus) {
 						singleList.add("TRUE");
 						stu.setVaccineState("TRUE");
