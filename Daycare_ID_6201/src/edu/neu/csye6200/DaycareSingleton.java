@@ -67,6 +67,19 @@ public class DaycareSingleton {
 		return dataStore;
 	}
 
+	public int getSelectYear() {
+		if (selectYear == 0) {
+			return 2018;
+		}
+		return selectYear;
+	}
+
+	public void setSelectYear(int selectYear) {
+		this.selectYear = selectYear;
+		initializeData();
+	}
+
+	private int selectYear;
 	private DataStore dataStore;
 	private int teacherID;
 	private int classRoomID;

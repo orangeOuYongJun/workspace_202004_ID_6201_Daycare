@@ -38,7 +38,7 @@ public class ImmunizationSituationUI {
 		frame.setBounds(0, 0, 800, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = frame.getContentPane();
-
+//		System.out.println(DaycareSingleton.getInstance().getSelectYear());
 		viewConfig();
 	}
 
@@ -96,6 +96,7 @@ public class ImmunizationSituationUI {
 					singleList.add(stu.getAddress());
 					if (UpdateVaccineStatus) {
 						singleList.add("TRUE");
+						stu.setVaccineState("TRUE");
 					} else {
 						singleList.add(stu.isVaccineState());
 					}
@@ -125,6 +126,7 @@ public class ImmunizationSituationUI {
 					singleList.add(String.valueOf(stu.getStuId()));
 					if (UpdateVaccineStatus) {
 						singleList.add("TRUE");
+						stu.setVaccineState("TRUE");
 					} else {
 						singleList.add(stu.isVaccineState());
 					}
@@ -140,9 +142,16 @@ public class ImmunizationSituationUI {
 		}
 
 		table.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-		JScrollPane jScrollPane = new JScrollPane(table);
+		jScrollPane = new JScrollPane(table);
 		jScrollPane.setBounds(0, 0, 800, 350);
 		contentPane.add(jScrollPane);
+		if (UpdateVaccineStatus) {
+			updateCSVData();
+		}
+	}
+
+	private static void updateCSVData() {
+		CSVdata.writeStudentFile();
 	}
 
 	private static JFrame frame;

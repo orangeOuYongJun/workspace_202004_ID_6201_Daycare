@@ -20,9 +20,9 @@ import java.awt.*;
 public class ClassroomUI {
 
 	public ClassroomUI() {
-		
+
 		DaycareSingleton.getInstance().initializeData();
-		
+
 		JFrame jf = new JFrame("Classroom Situation");
 
 		jf.setSize(400, 300);
@@ -65,8 +65,8 @@ public class ClassroomUI {
 			public void itemStateChanged(ItemEvent e) {
 
 				if (e.getStateChange() == ItemEvent.SELECTED) {
-//					comboBox.getSelectedIndex() ==
-					System.out.println("ѡ��: " + comboBox.getSelectedIndex() + " = " + comboBox.getSelectedItem());
+					String yearString = (String) comboBox.getSelectedItem();
+					DaycareSingleton.getInstance().setSelectYear(Integer.valueOf(yearString));
 				}
 			}
 		});

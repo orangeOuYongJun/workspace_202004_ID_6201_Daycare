@@ -2,6 +2,8 @@ package edu.neu.csye6200;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,21 +13,28 @@ import java.util.List;
 
 public class CSVdata {
 
+	public static final String defaultPWD = "000000";
+
 	public static List<Student> readStudentData() {
 		List<Student> students = new ArrayList<>();
 		// StudentFactory studentFactory = new StudentFactory();
 
-		//vscode
-		// try (BufferedReader inLine = new BufferedReader(new FileReader("./Daycare_ID_6201/studentCSV.csv"));) {
-			//eclipse
-		try (BufferedReader inLine = new BufferedReader(new FileReader("./studentCSV.csv"));) {
+		// vscode
+		// try (BufferedReader inLine = new BufferedReader(new
+		// FileReader("./Daycare_ID_6201/studentCSV.csv"));) {
+		// eclipse
+		StringBuilder sBuilder = new StringBuilder();
+		sBuilder.append("./studentCSV");
+		sBuilder.append(String.valueOf(DaycareSingleton.getInstance().getSelectYear()));
+		sBuilder.append(".csv");
+		try (BufferedReader inLine = new BufferedReader(new FileReader(sBuilder.toString()));) {
 			String inputLine = null; // read one line from file at a time
 			while ((inputLine = inLine.readLine()) != null) { // Parse line converting each string token into a Student
 																// object field
 				// Student stu = studentFactory.getObject(inputLine);
 				Student stu = getObject(inputLine);
 				students.add(stu);
-			} 
+			}
 		} catch (IOException e) {
 			// catch IOException (and implicitly FileNotFoundException)
 			e.printStackTrace();
@@ -58,38 +67,42 @@ public class CSVdata {
 		return student;
 	}
 
-	// public static void writeStudentFile(List<Student> students) {
-	// 	try (BufferedWriter out = new BufferedWriter(new FileWriter("./studentCSV.csv"))) {
-	// 		for (Student st : students) {
-	// 			String idString = String.valueOf(st.getStuId());
-	// 			String ageString = String.valueOf(st.getAge());
-	// 			String stString = idString + "," + ageString + "," + st.getFirstName() + "," + st.getLastName() + ","
-	// 					+ st.getParentFirstName() + "," + st.getParentLastName() + "," + st.getAddress() + ","
-	// 					+ st.getParentPhone();
+	public static void writeStudentFile() {
 
-	// 			out.write(stString);
-	// 			out.newLine();
-	// 		}
-	// 		out.flush();
-	// 	} catch (Exception e) {
-	// 		e.printStackTrace();
-	// 	}
-	// }
+		StringBuilder sBuilder = new StringBuilder();
+		sBuilder.append("./studentCSV");
+		sBuilder.append(String.valueOf(DaycareSingleton.getInstance().getSelectYear()));
+		sBuilder.append(".csv");
+		try (BufferedWriter out = new BufferedWriter(new FileWriter(sBuilder.toString()))) {
+			for (Student st : DaycareSingleton.getInstance().getDataStore().getStudentList()) {
+				String idString = String.valueOf(st.getStuId());
+				String ageString = String.valueOf(st.getAge());
+				String stString = idString + "," + ageString + "," + st.getFirstName() + "," + st.getLastName() + ","
+						+ st.getParentFirstName() + "," + st.getParentLastName() + "," + st.getAddress() + ","
+						+ st.getParentPhone() + "," + st.isVaccineState() + "," + defaultPWD;
 
-
+				out.write(stString);
+				out.newLine();
+			}
+			out.flush();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	public static List<Teacher> readTeacherData() {
 		// int i = 10;
 		List<Teacher> teachers = new ArrayList<>();
 
-		//eclipse
+		// eclipse
 		try (BufferedReader inLine = new BufferedReader(new FileReader("./teacherCSV.csv"));) {
 			// vscode
-			// try (BufferedReader inLine = new BufferedReader(new FileReader("./Daycare_ID_6201/teacherCSV.csv"));) {
+			// try (BufferedReader inLine = new BufferedReader(new
+			// FileReader("./Daycare_ID_6201/teacherCSV.csv"));) {
 			String inputLine = null; // read one line from file at a time
-			while ((inputLine = inLine.readLine()) != null) { 
+			while ((inputLine = inLine.readLine()) != null) {
 				// while (i > 0) {
-					// inputLine = inLine.readLine();
+				// inputLine = inLine.readLine();
 
 				Teacher teacher = new Teacher(0, null, null, 0);
 				// System.out.println(inputLine);
@@ -119,5 +132,4 @@ public class CSVdata {
 		// System.out.println(teachers);
 		return teachers;
 	}
-
 }
