@@ -19,7 +19,6 @@ import edu.neu.csye6200.DaycareSingleton;
 import edu.neu.csye6200.Student;
 import edu.neu.csye6200.Teacher;
 
-
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -123,7 +122,7 @@ public class LogInUI {
 
 		for (Teacher teacher : CSVdata.readTeacherData()) {
 
-			if (teacher.getTeacherID().equals(userName)) {
+			if (String.valueOf(teacher.getTeacherId()).equals(userName)) {
 				if (teacher.getPwd().equals(String.valueOf(pwd))) {
 					DaycareSingleton.getInstance().setCurrentUserData(teacher);
 					DaycareSingleton.getInstance().userType = DaycareSingleton.UserType.TEACHER;
@@ -136,7 +135,7 @@ public class LogInUI {
 		}
 
 		for (Student student : CSVdata.readStudentData()) {
-			if (student.getStuId().equals(userName)) {
+			if (String.valueOf(student.getStuId()).equals(userName)) {
 				if (student.getPwd().equals(String.valueOf(pwd))) {
 					DaycareSingleton.getInstance().setCurrentUserData(student);
 					DaycareSingleton.getInstance().userType = DaycareSingleton.UserType.STUDENT;

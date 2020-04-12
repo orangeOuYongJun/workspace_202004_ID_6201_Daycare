@@ -1,7 +1,5 @@
 package edu.neu.csye6200;
 
-
-
 public class DaycareSingleton {
 
 	public int getUserID() {
@@ -29,11 +27,56 @@ public class DaycareSingleton {
 		this.currentUserData = currentUserData;
 	}
 
+	public void initializeData() {
+
+		dataStore = new DataStore(CSVdata.readStudentData(), CSVdata.readTeacherData());
+		RatioRule.addStuToGroup(dataStore.getStudentList(), dataStore.getTeacherList(), dataStore.getGroupList());
+		RatioRule.addGroupToClassroom(dataStore.getGroupList(), dataStore.getClassroomList());
+
+		if (this.userType == UserType.STUDENT) {
+			for (Student student : dataStore.getStudentList()) {
+				if (student.getStuId() == userID) {
+					currentGroupID = student.getGroupId();
+					classRoomID = student.getClassroomId();
+					teacherID = student.getTeacherNum();
+				}
+			}
+		} else {
+			for (Teacher teacher : dataStore.getTeacherList()) {
+				if (teacher.getTeacherId() == userID) {
+					currentGroupID = teacher.getGroupId();
+					classRoomID = teacher.getClassroomId();
+				}
+			}
+		}
+	}
+
+	public int getTeacherID() {
+		return teacherID;
+	}
+
+	public int getClassroomID() {
+		return classRoomID;
+	}
+
+	public int getGroupID() {
+		return currentGroupID;
+	}
+
+	public DataStore getDataStore() {
+		return dataStore;
+	}
+
+	private DataStore dataStore;
+	private int teacherID;
+	private int classRoomID;
+	private int currentGroupID;
 	private int userID;
 	private Person currentUserData;
 
 	public static enum UserType {
 		STUDENT, TEACHER
 	}
+
 	public UserType userType;
 }

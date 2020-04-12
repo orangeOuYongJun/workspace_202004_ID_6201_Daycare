@@ -20,6 +20,9 @@ import java.awt.*;
 public class ClassroomUI {
 
 	public ClassroomUI() {
+		
+		DaycareSingleton.getInstance().initializeData();
+		
 		JFrame jf = new JFrame("Classroom Situation");
 
 		jf.setSize(400, 300);
@@ -36,7 +39,7 @@ public class ClassroomUI {
 		switch (DaycareSingleton.getInstance().userType) {
 		case STUDENT:
 			Student p1 = (Student) person;
-			JLabel l5 = new JLabel("Teacher:" + p1.getTeacherID());
+			JLabel l5 = new JLabel("Teacher:" + String.valueOf(DaycareSingleton.getInstance().getTeacherID()));
 			panel.add(l5);
 			break;
 		case TEACHER:
