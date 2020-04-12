@@ -104,8 +104,6 @@ public class Student extends Person {
 		this.groupId = groupId;
 	}
 
-	
-
 	public String getParentPhone() {
 		return parentPhone;
 	}

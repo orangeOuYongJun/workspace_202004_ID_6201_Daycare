@@ -49,24 +49,24 @@ public class ImmunizationSituationUI {
 		JButton buttonVaccine = new JButton("One-click vaccination");
 		buttonVaccine.setBounds(300, 400, 200, 50);
 		contentPane.add(buttonVaccine);
-		
+
 		JButton buttonBack = new JButton("Back");
 		buttonBack.setBounds(0, 400, 200, 50);
 		contentPane.add(buttonBack);
-		
+
 		JButton buttonMore = new JButton("More");
 		buttonMore.setBounds(600, 400, 200, 50);
 		contentPane.add(buttonMore);
 
 		buttonBack.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				DaycareSingleton.getInstance().getClassroomUIFrame().setVisible(true);
 				frame.setVisible(false);
 			}
 		});
-		
+
 		buttonVaccine.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CurrentSituation homepage = new CurrentSituation();
@@ -98,7 +98,7 @@ public class ImmunizationSituationUI {
 		if (DaycareSingleton.getInstance().userType == UserType.STUDENT) {
 //			student
 			String[] columName = { "MyID", "FirstName", "LastName", "Address", "VaccineStatus(T/F)", "GroupID",
-					"Classroom", "TeacherID" };
+					"TeacherID" };
 			int index = 0;
 			Object[][] tableList = new Object[2][9];
 			for (Student stu : DaycareSingleton.getInstance().getDataStore().getStudentList()) {
@@ -115,7 +115,6 @@ public class ImmunizationSituationUI {
 						singleList.add(stu.isVaccineState());
 					}
 					singleList.add(String.valueOf(stu.getGroupId()));
-					singleList.add(String.valueOf(stu.getClassroomId()));
 					singleList.add(String.valueOf(stu.getTeacherNum()));
 					String[] student = singleList.toArray(new String[singleList.size()]);
 					tableList[index++] = student;
@@ -127,7 +126,7 @@ public class ImmunizationSituationUI {
 		} else {
 //			teacher
 			String[] columName = { "StuId", "FirstName", "LastName", "Address", "Age", "VaccineStatus(T/F)",
-					"ParentPhone", "GroupID", "Classroom" };
+					"ParentPhone", "GroupID" };
 			int index = 0;
 			Object[][] tableList = new Object[10][9];
 			for (Student stu : DaycareSingleton.getInstance().getDataStore().getStudentList()) {
@@ -146,7 +145,6 @@ public class ImmunizationSituationUI {
 					}
 					singleList.add(stu.getParentPhone());
 					singleList.add(String.valueOf(stu.getGroupId()));
-					singleList.add(String.valueOf(stu.getClassroomId()));
 					String[] student = singleList.toArray(new String[singleList.size()]);
 					tableList[index++] = student;
 				}
