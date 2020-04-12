@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -111,10 +112,11 @@ public class LogInUI {
 			DaycareSingleton.getInstance().setUserID(Integer.valueOf(userName));
 			return true;
 		}
-//		else if (condition) {
-//			
-//		}
-
+	Object[] options = { "OK" }; 
+		JOptionPane.showOptionDialog(null, "Click OK to continue", "FBIWarning:Password check failed.", //null choose the original frame as parent frame
+				JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+	
+		     
 		return false;
 	}
 
