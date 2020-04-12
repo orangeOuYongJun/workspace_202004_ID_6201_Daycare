@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -82,7 +83,9 @@ public class LogInUI {
 					frame.setVisible(false);
 				} else {
 //					login fail
-
+					Object[] options = { "OK" };
+					JOptionPane.showOptionDialog(null, "Click OK to continue", "FBIWarning:Password check failed.",
+							JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 				}
 
 			}
@@ -117,6 +120,7 @@ public class LogInUI {
 	public boolean validLoginData(String userName, char[] pwd) {
 
 		for (Teacher teacher : CSVdata.readTeacherData()) {
+
 			if (teacher.getTeacherID() == Integer.valueOf(userName)) {
 				return teacher.getPwd().equals(String.valueOf(pwd));
 			}
@@ -130,5 +134,4 @@ public class LogInUI {
 
 		return false;
 	}
-
 }
