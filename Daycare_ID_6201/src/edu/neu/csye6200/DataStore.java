@@ -1,15 +1,17 @@
 package edu.neu.csye6200;
 
+//store student/teacher/group/classroom list
+
 import java.util.ArrayList;
-import java.util.HashMap;
+// import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+// import java.util.Map;
 
 public class DataStore {
     private List<Student> studentList;
 	private List<Teacher> teacherList;
-	// private List<Group> groupList;
-	// private List<Classroom> roomList;
+	private List<Group> groupList;
+	private List<Classroom> classroomList;
         // private Map<Integer,Group> groupMap = new HashMap<>();
         // private Map<String,Immunization> immunizationMap;
         private int year = 2020;
@@ -17,81 +19,81 @@ public class DataStore {
 	public DataStore() {
 		studentList = new ArrayList<>();
 		teacherList = new ArrayList<>();
-		// groupList = new ArrayList<>();
-		// roomList = new ArrayList<>();
+		groupList = new ArrayList<>();
+		classroomList = new ArrayList<>();
     }
     
-    public DataStore(List<Student> stuList, List<Teacher> tchList) {
-		this.studentList = stuList;
-		this.teacherList = tchList;
-        // groupList = new ArrayList<>();
-		// roomList = new ArrayList<>();
+    public DataStore(List<Student> studentList, List<Teacher> teacherList) {
+		this.studentList = studentList;
+		this.teacherList = teacherList;
+        groupList = new ArrayList<>();
+		classroomList = new ArrayList<>();
     }
     
-    public List<Student> getStuList() {
+    public List<Student> getStudentList() {
 		return studentList;
 	}
 
-	public void setStuList(List<Student> stuList) {
-		this.studentList = stuList;
+	public void setStudentList(List<Student> studentList) {
+		this.studentList = studentList;
 	}
 
-	public List<Teacher> getTchList() {
+	public List<Teacher> getTeacherList() {
 		return teacherList;
 	}
 
-	public void setTchList(List<Teacher> tchList) {
-		this.teacherList = tchList;
+	public void setTeacherList(List<Teacher> teacherList) {
+		this.teacherList = teacherList;
 	}
 
-	// public List<Group> getGroupList() {
-	// 	return groupList;
-	// }
+	public List<Group> getGroupList() {
+		return groupList;
+	}
 
-	// public void setGroupList(List<Group> groupList) {
-	// 	this.groupList = groupList;
-	// }
+	public void setGroupList(List<Group> groupList) {
+		this.groupList = groupList;
+	}
 
-	// public List<Classroom> getRoomList() {
-	// 	return roomList;
-	// }
+	public List<Classroom> getClassroomList() {
+		return classroomList;
+	}
 
-	// public void setRoomList(List<Classroom> roomList) {
-	// 	this.roomList = roomList;
-	// }
+	public void setClassroomList(List<Classroom> classroomList) {
+		this.classroomList = classroomList;
+	}
 
 	
-	public void addTostuList(Student student) {
+	public void addTostudentList(Student student) {
 		this.studentList.add(student);
 	}
 	
-	public void deleteStu(Student student) {
+	public void deleteStudent(Student student) {
 		this.studentList.remove(student);
 	}
 	
-	public void addTotchList(Teacher teacher) {
+	public void addToteacherList(Teacher teacher) {
 		this.teacherList.add(teacher);
 	}
 	
-	public void deleteTch(Teacher teacher) {
+	public void deleteTeacher(Teacher teacher) {
 		this.teacherList.remove(teacher);
 	}
 	
-	// public void addTogroupList(Group group) {
-	// 	this.groupList.add(group);
-	// }
+	public void addTogroupList(Group group) {
+		this.groupList.add(group);
+	}
 	
-	// public void deleteGroup(Group group) {
-	// 	this.groupList.remove(group);
-	// }
+	public void deleteGroup(Group group) {
+		this.groupList.remove(group);
+	}
 	
-	// public void addToroomList(Classroom room) {
-	// 	this.roomList.add(room);
-	// }
+	public void addToclassroomList(Classroom classroom) {
+		this.classroomList.add(classroom);
+	}
 	
-	// public void deleteRoom(Classroom room) {
-	// 	this.roomList.remove(room);
-    // }
+	public void deleteClassoom(Classroom classroom) {
+		this.classroomList.remove(classroom);
+    }
     
     public int getYear() {
         return year;

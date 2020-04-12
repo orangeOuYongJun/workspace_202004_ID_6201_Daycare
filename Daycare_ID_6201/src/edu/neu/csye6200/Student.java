@@ -5,19 +5,26 @@ public class Student extends Person {
 
 	//finish
 	// private String stuId;
-	private String stuId;
+	private int stuId;
 	private String parentFirstName;
 	private String parentLastName;
 	private String address;
 	private String parentPhone;
 	private String vaccineState;
+
+	private int classroomId;
+	private int groupId;
+	private int teacherNum;
+	// private int teacherId;
+	
+	
 	public Student(String firstName, String lastName, int age) {
 		super(firstName, lastName, age);
 
 	}
 
 
-	public Student(String stuId, int age, String firstName, String lastName, String parentFirstName,
+	public Student(int stuId, int age, String firstName, String lastName, String parentFirstName,
 			String parentLastName, String address, String parentPhone, String vaccineState) {
 		super(firstName, lastName, age);
 		this.stuId = stuId;
@@ -26,25 +33,26 @@ public class Student extends Person {
 		this.address = address;
 		this.parentPhone = parentPhone;
 		this.vaccineState = vaccineState;
+		
 	}
 
-	public String getStuId() {
+	public int getStuId() {
 		return stuId;
 	}
 
-	public void setStuId(String stuId) {
+	public void setStuId(int stuId) {
 		this.stuId = stuId;
 	}
-	
-	
 
-	public Student(String name, int classroomID, int teacherID, int personID) {
-		super();
-		this.setPersonID(personID);
-		this.name = name;
-		this.classroomID = classroomID;
-		this.teacherID = teacherID;
+	public int getTeacherNum() {
+		return teacherNum;
 	}
+
+	public void setTeacherNum(int teacherNum) {
+		this.teacherNum = teacherNum;
+	}
+	
+	
 
 	public String getParentFirstName() {
 		return parentFirstName;
@@ -72,25 +80,29 @@ public class Student extends Person {
 	}
 
 
-	public String getName() {
-		return name;
+	// public int getTeacherId() {
+	// 	return teacherId;
+	// }
+
+	// public void setTeacherID(int teacherId) {
+	// 	this.teacherId = teacherId;
+	// }
+
+	public int getClassroomId() {
+		return classroomId;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setClassroomId(int classroomId) {
+		this.classroomId = classroomId;
 	}
 
-	public int getTeacherID() {
-		return teacherID;
+	public int getGroupId() {
+		return groupId;
 	}
 
-	public void setTeacherID(int teacherID) {
-		this.teacherID = teacherID;
+	public void setGroupId(int groupId) {
+		this.groupId = groupId;
 	}
-
-	private String name;
-	private int classroomID;
-	private int teacherID;
 
 	
 

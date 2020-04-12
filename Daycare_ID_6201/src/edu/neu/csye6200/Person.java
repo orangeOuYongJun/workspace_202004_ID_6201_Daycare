@@ -1,14 +1,11 @@
 package edu.neu.csye6200;
 
-//finish
-
 public class Person extends AbstractPerson {
-
-	public Person()
-	{}	
 	private String firstName;
 	private String lastName;
 	private int age;
+	
+	
 	public Person(String firstName, String lastName, int age) {
 		super();
 		this.setFirstName(firstName);
@@ -21,6 +18,7 @@ public class Person extends AbstractPerson {
 	public int getAge() {
 		return age;
 	}
+	
 	@Override
 	public void setAge(int age) {
 		this.age = age;
@@ -47,4 +45,14 @@ public class Person extends AbstractPerson {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + "]";
+	}
+	
+	
+
+
 }

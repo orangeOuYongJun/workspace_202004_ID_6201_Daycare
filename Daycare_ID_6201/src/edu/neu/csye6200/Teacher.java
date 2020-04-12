@@ -5,28 +5,34 @@ package edu.neu.csye6200;
 
 public class Teacher extends Person {
 
-	public String getTeacherID() {
-		return teacherID;
+	private int teacherId;
+	private int classroomId;
+	private int groupId;
+	
+
+	public int getTeacherId() {
+		return teacherId;
 	}
 
-	public void setTeacherID(String teacherID) {
-		this.teacherID = teacherID;
+	public void setTeacherId(int teacherId) {
+		this.teacherId = teacherId;
+
 	}
 
-	public String getName() {
-		return name;
+	public int getClassroomId() {
+		return classroomId;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setClassroomId(int classroomId) {
+		this.classroomId = classroomId;
 	}
 
-	public int getClassroomID() {
-		return classroomID;
+	public int getGroupId() {
+		return groupId;
 	}
 
-	public void setClassroomID(int classroomID) {
-		this.classroomID = classroomID;
+	public void setGroupId(int groupId) {
+		this.groupId = groupId;
 	}
 
 	public Teacher(String firstName, String lastName, int age) {
@@ -34,20 +40,18 @@ public class Teacher extends Person {
 
 	}
 
-	public Teacher(String teacherID, String firstName, String lastName, int age) {
+
+	public Teacher(int teacherId,  String firstName, String lastName, int age) {
+
 		super(firstName, lastName, age);
-		this.teacherID = teacherID;
+		this.teacherId = teacherId;
 	}
 
-	private String teacherID;
 
 	@Override
 	public String toString() {
-		return "Teacher [teacherID=" + teacherID + "]";
+		return "Teacher [teacherID=" + teacherId + "]";
 	}
 
-	private String name;
-	private int Credits;
-	private int classroomID;
 
 }
