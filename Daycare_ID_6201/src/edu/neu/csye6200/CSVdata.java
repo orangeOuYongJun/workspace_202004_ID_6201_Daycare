@@ -16,9 +16,9 @@ public class CSVdata {
 		// StudentFactory studentFactory = new StudentFactory();
 
 		//vscode
-		try (BufferedReader inLine = new BufferedReader(new FileReader("./Daycare_ID_6201/studentCSV.csv"));) {
+		// try (BufferedReader inLine = new BufferedReader(new FileReader("./Daycare_ID_6201/studentCSV.csv"));) {
 			//eclipse
-		// try (BufferedReader inLine = new BufferedReader(new FileReader("./studentCSV.csv"));) {
+		try (BufferedReader inLine = new BufferedReader(new FileReader("./studentCSV.csv"));) {
 			String inputLine = null; // read one line from file at a time
 			while ((inputLine = inLine.readLine()) != null) { // Parse line converting each string token into a Student
 																// object field
@@ -82,9 +82,9 @@ public class CSVdata {
 		List<Teacher> teachers = new ArrayList<>();
 
 		//eclipse
-		// try (BufferedReader inLine = new BufferedReader(new FileReader("./teacherCSV.csv"));) {
+		try (BufferedReader inLine = new BufferedReader(new FileReader("./teacherCSV.csv"));) {
 			// vscode
-			try (BufferedReader inLine = new BufferedReader(new FileReader("./Daycare_ID_6201/teacherCSV.csv"));) {
+			// try (BufferedReader inLine = new BufferedReader(new FileReader("./Daycare_ID_6201/teacherCSV.csv"));) {
 			String inputLine = null; // read one line from file at a time
 			while ((inputLine = inLine.readLine()) != null) { 
 				// while (i > 0) {
