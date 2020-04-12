@@ -10,12 +10,11 @@ public class BackgroundMusic {
 	public static void playMusic() {// 背景音乐播放
 		try {
 			URL cb;
-			File f = new File("./cccc.wav");
+			File f = new File("./bgm.wav");
 			cb = f.toURL();
 			AudioClip aau;
 			aau = Applet.newAudioClip(cb);
 
-			aau.play();
 			aau.loop();// 循环播放
 			// 单曲 aau.stop()停止播放
 
