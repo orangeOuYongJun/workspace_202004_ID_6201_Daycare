@@ -14,7 +14,11 @@ public class CSVdata {
 	public static List<Student> readStudentData() {
 		List<Student> students = new ArrayList<>();
 		// StudentFactory studentFactory = new StudentFactory();
-		try (BufferedReader inLine = new BufferedReader(new FileReader("./studentCSV.csv"));) {
+
+		//vscode
+		try (BufferedReader inLine = new BufferedReader(new FileReader("./Daycare_ID_6201/studentCSV.csv"));) {
+			//eclipse
+		// try (BufferedReader inLine = new BufferedReader(new FileReader("./studentCSV.csv"));) {
 			String inputLine = null; // read one line from file at a time
 			while ((inputLine = inLine.readLine()) != null) { // Parse line converting each string token into a Student
 																// object field
@@ -37,10 +41,10 @@ public class CSVdata {
 		// parentFirstName,
 		// String parentLastName, String address, String parentPhone, boolean
 		// vaccineState
-		Student student = new Student(null, 0, null, null, null, null, null, null, null);
+		Student student = new Student(0, 0, null, null, null, null, null, null, null);
 		String[] arr = csv.split(",");
 		// student.setStuId(Integer.parseInt(arr[0]));
-		student.setStuId(arr[0]);
+		student.setStuId(Integer.parseInt(arr[0]));
 		student.setAge(Integer.parseInt(arr[1]));
 		student.setFirstName(arr[2]);
 		student.setLastName(arr[3]);
@@ -76,7 +80,11 @@ public class CSVdata {
 	public static List<Teacher> readTeacherData() {
 		// int i = 10;
 		List<Teacher> teachers = new ArrayList<>();
-		try (BufferedReader inLine = new BufferedReader(new FileReader("./teacherCSV.csv"));) {
+
+		//eclipse
+		// try (BufferedReader inLine = new BufferedReader(new FileReader("./teacherCSV.csv"));) {
+			// vscode
+			try (BufferedReader inLine = new BufferedReader(new FileReader("./Daycare_ID_6201/teacherCSV.csv"));) {
 			String inputLine = null; // read one line from file at a time
 			while ((inputLine = inLine.readLine()) != null) { 
 				// while (i > 0) {
@@ -87,7 +95,7 @@ public class CSVdata {
 				String[] arr = inputLine.split(",");
 				// System.out.println(arr[1]);
 				// student.setStuId(Integer.parseInt(arr[0]));
-				teacher.setTeacherID(Integer.parseInt(arr[0]));
+				teacher.setTeacherId(Integer.parseInt(arr[0]));
 				teacher.setFirstName(arr[1]);
 				teacher.setLastName(arr[2]);
 				teacher.setAge(Integer.parseInt(arr[3]));

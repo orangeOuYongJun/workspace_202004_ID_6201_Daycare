@@ -10,7 +10,7 @@ public class Group extends AbstractGroup {
 	private int groupId;
 	private int groupSize;
 	private Teacher teacher;
-	private int classRoomID;
+	private int classroomId;
 	private List<Student> studentsList = new ArrayList<>();
 	
 	public Group() {
@@ -26,12 +26,12 @@ public class Group extends AbstractGroup {
 		setTeacher(teacher);
 	}
 
-	public int getClassRoomID() {
-		return classRoomID;
+	public int getClassroomId() {
+		return classroomId;
 	}
 
-	public void setClassRoomID(int classRoomID) {
-		this.classRoomID = classRoomID;
+	public void setClassroomId(int classroomId) {
+		this.classroomId = classroomId;
 	}
 
 	@Override
@@ -82,5 +82,10 @@ public class Group extends AbstractGroup {
 	@Override
 	public void setStudentsList(List<Student> studentsList) {
 		this.studentsList = studentsList;
+	}
+
+	@Override
+	public String toString() {
+		return " ";
 	}
 }
