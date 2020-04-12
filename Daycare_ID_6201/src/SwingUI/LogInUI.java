@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
 
+import edu.neu.csye6200.BackgroundMusic;
 import edu.neu.csye6200.CSVdata;
 import edu.neu.csye6200.DataStore;
 import edu.neu.csye6200.DaycareSingleton;
@@ -35,6 +36,7 @@ public class LogInUI {
 	 * Launch the application.
 	 */
 	public static void initializeLoginView() {
+		initializeMusic();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -45,6 +47,10 @@ public class LogInUI {
 				}
 			}
 		});
+	}
+
+	public static void initializeMusic() {
+		BackgroundMusic.playMusic();
 	}
 
 	/**
