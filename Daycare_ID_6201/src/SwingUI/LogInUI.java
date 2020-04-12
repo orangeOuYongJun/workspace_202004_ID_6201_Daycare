@@ -7,16 +7,23 @@ import javax.swing.JFrame;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
 
+import edu.neu.csye6200.CSVdata;
+import edu.neu.csye6200.DataStore;
 import edu.neu.csye6200.DaycareSingleton;
+import edu.neu.csye6200.Student;
+import edu.neu.csye6200.Teacher;
+
 
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class LogInUI {
@@ -71,10 +78,18 @@ public class LogInUI {
 			public void actionPerformed(ActionEvent e) {
 
 				boolean isLogin = validLoginData(usertxt.getText(), passwordtxt.getPassword());
+				if (isLogin) {
+					ClassroomUI homepage = new ClassroomUI();
+//					homepage.setVisible(true);
+					frame.setVisible(false);
 
-				ClassroomUI homepage = new ClassroomUI();
-//				homepage.setVisible(true);
-				frame.setVisible(false);
+				} else {
+//					login fail
+					Object[] options = { "OK" };
+					JOptionPane.showOptionDialog(null, "Click OK to continue", "FBIWarning:Password check failed.",
+							JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+				}
+
 			}
 		});
 
@@ -106,16 +121,33 @@ public class LogInUI {
 
 	public boolean validLoginData(String userName, char[] pwd) {
 
-		if (String.valueOf(pwd).equals("000000")) {
-			System.out.println("login success");
-			DaycareSingleton.getInstance().setUserID(Integer.valueOf(userName));
-			return true;
+		for (Teacher teacher : CSVdata.readTeacherData()) {
+
+			if (teacher.getTeacherID().equals(userName)) {
+				if (teacher.getPwd().equals(String.valueOf(pwd))) {
+					DaycareSingleton.getInstance().setCurrentUserData(teacher);
+					DaycareSingleton.getInstance().userType = DaycareSingleton.UserType.TEACHER;
+					DaycareSingleton.getInstance().setUserID(Integer.valueOf(usertxt.getText()));
+					return true;
+				} else {
+					return false;
+				}
+			}
 		}
-//		else if (condition) {
-//			
-//		}
+
+		for (Student student : CSVdata.readStudentData()) {
+			if (student.getStuId().equals(userName)) {
+				if (student.getPwd().equals(String.valueOf(pwd))) {
+					DaycareSingleton.getInstance().setCurrentUserData(student);
+					DaycareSingleton.getInstance().userType = DaycareSingleton.UserType.STUDENT;
+					DaycareSingleton.getInstance().setUserID(Integer.valueOf(usertxt.getText()));
+					return true;
+				} else {
+					return false;
+				}
+			}
+		}
 
 		return false;
 	}
-
 }
