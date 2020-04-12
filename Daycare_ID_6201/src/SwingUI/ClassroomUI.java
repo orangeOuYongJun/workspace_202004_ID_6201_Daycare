@@ -25,40 +25,31 @@ public class ClassroomUI {
 
 		JFrame jf = new JFrame("Classroom Situation");
 
-		jf.setSize(400, 300);
+		jf.setBounds(100, 100, 800, 500);
 		jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		jf.setLocationRelativeTo(null);
 
-		GridLayout layout = new GridLayout(3, 3);
-
-		JPanel panel = new JPanel(layout);
-
-		JLabel lab01 = new JLabel("Year:");
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
 
 		Person person = DaycareSingleton.getInstance().getCurrentUserData();
-		switch (DaycareSingleton.getInstance().userType) {
-		case STUDENT:
-			Student p1 = (Student) person;
-			JLabel l5 = new JLabel("Teacher:" + String.valueOf(DaycareSingleton.getInstance().getTeacherID()));
-			panel.add(l5);
-			break;
-		case TEACHER:
-			Teacher p2 = (Teacher) person;
-			JLabel l6 = new JLabel("Student");
-			panel.add(l6);
-			break;
-		default:
-			break;
-		}
 
-		JLabel l3 = new JLabel("Classroom");
-		JLabel l4 = new JLabel("Name:" + person.getFirstName() + person.getLastName());
+		JLabel l3 = new JLabel("Classroom: " + DaycareSingleton.getInstance().getClassroomID());
+		l3.setBounds(100, 0, 200, 50);
+
+		JLabel l4 = new JLabel("Name: " + person.getFirstName() + " " + person.getLastName());
+		l4.setBounds(100, 70, 200, 50);
 
 		JButton btn06 = new JButton("Immunization Record");
+		btn06.setBounds(100, 140, 200, 50);
+
+		JLabel lab01 = new JLabel("Year: ");
+		lab01.setBounds(100, 210, 200, 50);
 
 		String[] listYear = new String[] { "2018", "2019", "2020", "2021" };
 
 		final JComboBox<String> comboBox = new JComboBox<String>(listYear);
+		comboBox.setBounds(200, 210, 100, 50);
 
 		comboBox.addItemListener(new ItemListener() {
 			@Override

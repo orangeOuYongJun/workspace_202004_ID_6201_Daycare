@@ -34,7 +34,7 @@ public class LogInUI {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void initializeLoginView() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -59,7 +59,7 @@ public class LogInUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 446, 372);
+		frame.setBounds(100, 100, 800, 500);
 		;
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JLabel lblUsername = new JLabel("UserID:");
