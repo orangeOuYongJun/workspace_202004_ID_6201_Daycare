@@ -10,6 +10,10 @@ import javax.swing.JFrame;
 
 import edu.neu.csye6200.DaycareSingleton;
 import edu.neu.csye6200.Immunization;
+import edu.neu.csye6200.Person;
+import edu.neu.csye6200.Student;
+import edu.neu.csye6200.Teacher;
+import edu.neu.csye6200.DaycareSingleton.UserType;
 
 import java.awt.*;
 
@@ -27,9 +31,25 @@ public class ClassroomUI {
 		JPanel panel = new JPanel(layout);
 
 		JLabel lab01 = new JLabel("Year:");
-		JButton btn03 = new JButton("Classroom");
-		JButton btn04 = new JButton("Teacher");
-		JButton btn05 = new JButton("Student");
+
+		Person person = DaycareSingleton.getInstance().getCurrentUserData();
+		switch (DaycareSingleton.getInstance().userType) {
+		case STUDENT:
+			Student p1 = (Student) person;
+			JLabel l5 = new JLabel("Teacher:" + p1.getTeacherID());
+			panel.add(l5);
+			break;
+		case TEACHER:
+			Teacher p2 = (Teacher) person;
+			JLabel l6 = new JLabel("Student");
+			panel.add(l6);
+			break;
+		default:
+			break;
+		}
+
+		JLabel l3 = new JLabel("Classroom");
+		JLabel l4 = new JLabel("Name:" + person.getFirstName() + person.getLastName());
 
 		JButton btn06 = new JButton("Immunization Record");
 
@@ -59,9 +79,8 @@ public class ClassroomUI {
 
 		panel.add(lab01);
 		panel.add(comboBox);
-		panel.add(btn03);
-		panel.add(btn04);
-		panel.add(btn05);
+		panel.add(l3);
+		panel.add(l4);
 		panel.add(btn06);
 
 		jf.setContentPane(panel);
