@@ -12,6 +12,8 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
 
+import edu.neu.csye6200.CSVdata;
+import edu.neu.csye6200.DataStore;
 import edu.neu.csye6200.DaycareSingleton;
 import edu.neu.csye6200.Student;
 import edu.neu.csye6200.Teacher;
@@ -19,6 +21,7 @@ import edu.neu.csye6200.Teacher;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class LogInUI {
@@ -79,7 +82,7 @@ public class LogInUI {
 					frame.setVisible(false);
 				} else {
 //					login fail
-					
+
 				}
 
 			}
@@ -113,19 +116,13 @@ public class LogInUI {
 
 	public boolean validLoginData(String userName, char[] pwd) {
 
-		if (String.valueOf(pwd).equals("000000")) {
-			System.out.println("login success");
-			DaycareSingleton.getInstance().setUserID(Integer.valueOf(userName));
-			return true;
-		}
-
-		for (Teacher teacher : DaycareSingleton.getInstance().dataStore.getTchList()) {
+		for (Teacher teacher : CSVdata.readTeacherData()) {
 			if (teacher.getTeacherID() == Integer.valueOf(userName)) {
 				return teacher.getPwd().equals(String.valueOf(pwd));
 			}
 		}
 
-		for (Student student : DaycareSingleton.getInstance().dataStore.getStuList()) {
+		for (Student student : CSVdata.readStudentData()) {
 			if (student.getStuId().equals(userName)) {
 				return student.getPwd().equals(String.valueOf(pwd));
 			}
