@@ -14,6 +14,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
 
 import edu.neu.csye6200.DaycareSingleton;
+import edu.neu.csye6200.Student;
+import edu.neu.csye6200.Teacher;
 
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -72,10 +74,15 @@ public class LogInUI {
 			public void actionPerformed(ActionEvent e) {
 
 				boolean isLogin = validLoginData(usertxt.getText(), passwordtxt.getPassword());
+				if (isLogin) {
+					ClassroomUI homepage = new ClassroomUI();
+//					homepage.setVisible(true);
+					frame.setVisible(false);
+				} else {
+//					login fail
+					
+				}
 
-				ClassroomUI homepage = new ClassroomUI();
-//				homepage.setVisible(true);
-				frame.setVisible(false);
 			}
 		});
 
@@ -112,11 +119,25 @@ public class LogInUI {
 			DaycareSingleton.getInstance().setUserID(Integer.valueOf(userName));
 			return true;
 		}
+
 	Object[] options = { "OK" }; 
 		JOptionPane.showOptionDialog(null, "Click OK to continue", "FBIWarning:Password check failed.", //null choose the original frame as parent frame
 				JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 	
 		     
+
+		for (Teacher teacher : DaycareSingleton.getInstance().dataStore.getTchList()) {
+			if (teacher.getTeacherID() == Integer.valueOf(userName)) {
+				return teacher.getPwd().equals(String.valueOf(pwd));
+			}
+		}
+
+		for (Student student : DaycareSingleton.getInstance().dataStore.getStuList()) {
+			if (student.getStuId().equals(userName)) {
+				return student.getPwd().equals(String.valueOf(pwd));
+			}
+		}
+
 		return false;
 	}
 

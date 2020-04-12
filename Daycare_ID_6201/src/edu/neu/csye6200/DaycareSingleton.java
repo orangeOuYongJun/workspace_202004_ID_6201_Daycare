@@ -20,4 +20,5 @@ public class DaycareSingleton {
 	}
 
 	private int userID;
+	public DataStore dataStore;
 }
