@@ -1,17 +1,15 @@
 package edu.neu.csye6200;
 
-
 // import java.util.List;
 //finish
 
 public class Teacher extends Person {
-	
 
-	public int getTeacherID() {
+	public String getTeacherID() {
 		return teacherID;
 	}
 
-	public void setTeacherID(int teacherID) {
+	public void setTeacherID(String teacherID) {
 		this.teacherID = teacherID;
 	}
 
@@ -31,25 +29,22 @@ public class Teacher extends Person {
 		this.classroomID = classroomID;
 	}
 
-	
 	public Teacher(String firstName, String lastName, int age) {
 		super(firstName, lastName, age);
 
 	}
 
-	public Teacher(int teacherID,  String firstName, String lastName, int age) {
+	public Teacher(String teacherID, String firstName, String lastName, int age) {
 		super(firstName, lastName, age);
 		this.teacherID = teacherID;
 	}
 
-	
-	private int teacherID;
+	private String teacherID;
+
 	@Override
 	public String toString() {
 		return "Teacher [teacherID=" + teacherID + "]";
 	}
-	
-	
 
 	private String name;
 	private int Credits;

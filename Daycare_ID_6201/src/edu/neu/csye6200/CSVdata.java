@@ -83,12 +83,12 @@ public class CSVdata {
 				// while (i > 0) {
 					// inputLine = inLine.readLine();
 
-				Teacher teacher = new Teacher(0, null, null, 0);
+				Teacher teacher = new Teacher(null, null, null, 0);
 				// System.out.println(inputLine);
 				String[] arr = inputLine.split(",");
 				// System.out.println(arr[1]);
 				// student.setStuId(Integer.parseInt(arr[0]));
-				teacher.setTeacherID(Integer.parseInt(arr[0]));
+				teacher.setTeacherID(arr[0]);
 				teacher.setFirstName(arr[1]);
 				teacher.setLastName(arr[2]);
 				teacher.setAge(Integer.parseInt(arr[3]));

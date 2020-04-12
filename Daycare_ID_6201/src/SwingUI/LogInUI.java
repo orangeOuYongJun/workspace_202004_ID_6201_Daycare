@@ -19,6 +19,7 @@ import edu.neu.csye6200.DaycareSingleton;
 import edu.neu.csye6200.Student;
 import edu.neu.csye6200.Teacher;
 
+
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -81,6 +82,7 @@ public class LogInUI {
 					ClassroomUI homepage = new ClassroomUI();
 //					homepage.setVisible(true);
 					frame.setVisible(false);
+
 				} else {
 //					login fail
 					Object[] options = { "OK" };
@@ -121,14 +123,28 @@ public class LogInUI {
 
 		for (Teacher teacher : CSVdata.readTeacherData()) {
 
-			if (teacher.getTeacherID() == Integer.valueOf(userName)) {
-				return teacher.getPwd().equals(String.valueOf(pwd));
+			if (teacher.getTeacherID().equals(userName)) {
+				if (teacher.getPwd().equals(String.valueOf(pwd))) {
+					DaycareSingleton.getInstance().setCurrentUserData(teacher);
+					DaycareSingleton.getInstance().userType = DaycareSingleton.UserType.TEACHER;
+					DaycareSingleton.getInstance().setUserID(Integer.valueOf(usertxt.getText()));
+					return true;
+				} else {
+					return false;
+				}
 			}
 		}
 
 		for (Student student : CSVdata.readStudentData()) {
 			if (student.getStuId().equals(userName)) {
-				return student.getPwd().equals(String.valueOf(pwd));
+				if (student.getPwd().equals(String.valueOf(pwd))) {
+					DaycareSingleton.getInstance().setCurrentUserData(student);
+					DaycareSingleton.getInstance().userType = DaycareSingleton.UserType.STUDENT;
+					DaycareSingleton.getInstance().setUserID(Integer.valueOf(usertxt.getText()));
+					return true;
+				} else {
+					return false;
+				}
 			}
 		}
 

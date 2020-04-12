@@ -1,9 +1,16 @@
 package SwingUI;
 
 import javax.swing.*;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import javax.swing.JFrame;
+
+import edu.neu.csye6200.DaycareSingleton;
+import edu.neu.csye6200.Immunization;
+
 import java.awt.*;
 
 public class ClassroomUI {
@@ -23,7 +30,6 @@ public class ClassroomUI {
 		JButton btn03 = new JButton("Classroom");
 		JButton btn04 = new JButton("Teacher");
 		JButton btn05 = new JButton("Student");
-		;
 
 		JButton btn06 = new JButton("Immunization Record");
 
@@ -36,12 +42,20 @@ public class ClassroomUI {
 			public void itemStateChanged(ItemEvent e) {
 
 				if (e.getStateChange() == ItemEvent.SELECTED) {
+//					comboBox.getSelectedIndex() ==
 					System.out.println("ѡ��: " + comboBox.getSelectedIndex() + " = " + comboBox.getSelectedItem());
 				}
 			}
 		});
 
-		comboBox.setSelectedIndex(2);
+		btn06.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				jf.setVisible(false);
+				ImmunizationSituationUI.showDetaiStatus();
+			}
+		});
 
 		panel.add(lab01);
 		panel.add(comboBox);
