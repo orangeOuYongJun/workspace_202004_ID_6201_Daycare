@@ -1,5 +1,7 @@
 package edu.neu.csye6200;
 
+import javax.swing.JFrame;
+
 public class DaycareSingleton {
 
 	public int getUserID() {
@@ -79,6 +81,14 @@ public class DaycareSingleton {
 		initializeData();
 	}
 
+	public JFrame getClassroomUIFrame() {
+		return classroomUIFrame;
+	}
+
+	public void setClassroomUIFrame(JFrame classroomUIFrame) {
+		this.classroomUIFrame = classroomUIFrame;
+	}
+
 	private int selectYear;
 	private DataStore dataStore;
 	private int teacherID;
@@ -86,6 +96,7 @@ public class DaycareSingleton {
 	private int currentGroupID;
 	private int userID;
 	private Person currentUserData;
+	private JFrame classroomUIFrame;
 
 	public static enum UserType {
 		STUDENT, TEACHER

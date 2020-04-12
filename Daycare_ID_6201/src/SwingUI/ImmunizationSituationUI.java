@@ -35,10 +35,9 @@ public class ImmunizationSituationUI {
 	public static void showDetaiStatus() {
 
 		frame = new JFrame("ImmunizationSituationTable");
-		frame.setBounds(0, 0, 800, 500);
+		frame.setBounds(100, 100, 800, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = frame.getContentPane();
-//		System.out.println(DaycareSingleton.getInstance().getSelectYear());
 		viewConfig();
 	}
 
@@ -47,13 +46,28 @@ public class ImmunizationSituationUI {
 //		update data
 		updateTableData(false);
 
-		JButton button = new JButton("One-click vaccination");
-		button.setLayout(null);
-		button.setBounds(350, 350, 200, 50);
-		button.setBackground(Color.RED);
-		contentPane.add(button);
+		JButton buttonVaccine = new JButton("One-click vaccination");
+		buttonVaccine.setBounds(300, 400, 200, 50);
+		contentPane.add(buttonVaccine);
+		
+		JButton buttonBack = new JButton("Back");
+		buttonBack.setBounds(0, 400, 200, 50);
+		contentPane.add(buttonBack);
+		
+		JButton buttonMore = new JButton("More");
+		buttonMore.setBounds(600, 400, 200, 50);
+		contentPane.add(buttonMore);
 
-		button.addActionListener(new ActionListener() {
+		buttonBack.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DaycareSingleton.getInstance().getClassroomUIFrame().setVisible(true);
+				frame.setVisible(false);
+			}
+		});
+		
+		buttonVaccine.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CurrentSituation homepage = new CurrentSituation();
 //				homepage.setVisible(true);

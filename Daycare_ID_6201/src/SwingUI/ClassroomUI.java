@@ -79,6 +79,6 @@ public class ClassroomUI {
 
 		jf.setContentPane(panel);
 		jf.setVisible(true);
-
+		DaycareSingleton.getInstance().setClassroomUIFrame(jf);
 	}
 }

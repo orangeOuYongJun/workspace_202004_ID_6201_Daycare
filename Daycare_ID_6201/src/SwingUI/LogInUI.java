@@ -60,10 +60,8 @@ public class LogInUI {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 800, 500);
-		;
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JLabel lblUsername = new JLabel("UserID:");
-
 		JLabel lblPassword = new JLabel("Password:");
 
 		usertxt = new JTextField();
