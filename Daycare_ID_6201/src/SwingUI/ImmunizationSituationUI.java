@@ -33,43 +33,54 @@ import edu.neu.csye6200.DaycareSingleton.UserType;
 public class ImmunizationSituationUI {
 
 	public static void showDetaiStatus() {
-		JFrame frame = new JFrame("ImmunizationSituationTable");
 
+		frame = new JFrame("ImmunizationSituationTable");
 		frame.setBounds(0, 0, 800, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Container contentPane = frame.getContentPane();
+		contentPane = frame.getContentPane();
 
-		viewConfig(frame, contentPane);
+		viewConfig();
 	}
 
-	public static void viewConfig(JFrame frame, Container contentPane) {
+	public static void viewConfig() {
 
-//		student.setStuId(arr[0]);
-//		student.setAge(Integer.parseInt(arr[1]));
-//		student.setFirstName(arr[2]);
-//		student.setLastName(arr[3]);
-//		student.setParentFirstName(arr[4]);
-//		student.setParentLastName(arr[5]);
-//		student.setAddress(arr[6]);
-//		student.setParentPhone(arr[7]);
-//		student.setVaccineState(arr[8]);
-//		student.setPwd(arr[9]);
+//		update data
+		updateTableData(false);
 
-		Object[][] tableDate = new Object[5][7];
-		for (int i = 0; i < 5; i++) {
-			tableDate[i][0] = "1000" + i;
-			for (int j = 1; j < 7; j++) {
-				tableDate[i][j] = 0;
+		JButton button = new JButton("One-click vaccination");
+		button.setLayout(null);
+		button.setBounds(350, 350, 200, 50);
+		button.setBackground(Color.RED);
+		contentPane.add(button);
+
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CurrentSituation homepage = new CurrentSituation();
+//				homepage.setVisible(true);
+//				frame.setVisible(false);
+				updateTableData(true);
+				alertView();
 			}
-		}
+		});
 
-		JScrollPane scrollPane = new JScrollPane();
+		frame.setLayout(null);// cancel the default layout
+		frame.setVisible(true);
+	}
 
-//		JTable table = new JTable(tableDate, name);
+	public static void alertView() {
+		Object[] options = { "OK" };
+		JOptionPane.showOptionDialog(null, "Click OK to continue", "FBIWarning: Operation Done.",
+				JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+	}
+
+	private static void updateTableData(boolean UpdateVaccineStatus) {
+
 		JTable table = null;
-
+		if (jScrollPane != null) {
+			jScrollPane.removeAll();
+		}
 //		construct table data
-		Object[][] tableListDataList = null;
+		tableListDataList = null;
 		if (DaycareSingleton.getInstance().userType == UserType.STUDENT) {
 //			student
 			String[] columName = { "MyID", "FirstName", "LastName", "Address", "VaccineStatus(T/F)", "GroupID",
@@ -83,14 +94,17 @@ public class ImmunizationSituationUI {
 					singleList.add(stu.getFirstName());
 					singleList.add(stu.getLastName());
 					singleList.add(stu.getAddress());
-					singleList.add(stu.isVaccineState());
+					if (UpdateVaccineStatus) {
+						singleList.add("TRUE");
+					} else {
+						singleList.add(stu.isVaccineState());
+					}
 					singleList.add(String.valueOf(stu.getGroupId()));
 					singleList.add(String.valueOf(stu.getClassroomId()));
 					singleList.add(String.valueOf(stu.getTeacherNum()));
 					String[] student = singleList.toArray(new String[singleList.size()]);
 					tableList[index++] = student;
 				}
-
 			}
 			tableListDataList = tableList;
 			table = new JTable(tableListDataList, columName);
@@ -109,14 +123,17 @@ public class ImmunizationSituationUI {
 					singleList.add(stu.getLastName());
 					singleList.add(stu.getAddress());
 					singleList.add(String.valueOf(stu.getStuId()));
-					singleList.add(stu.isVaccineState());
+					if (UpdateVaccineStatus) {
+						singleList.add("TRUE");
+					} else {
+						singleList.add(stu.isVaccineState());
+					}
 					singleList.add(stu.getParentPhone());
 					singleList.add(String.valueOf(stu.getGroupId()));
 					singleList.add(String.valueOf(stu.getClassroomId()));
 					String[] student = singleList.toArray(new String[singleList.size()]);
 					tableList[index++] = student;
 				}
-
 			}
 			tableListDataList = tableList;
 			table = new JTable(tableListDataList, columName);
@@ -126,30 +143,11 @@ public class ImmunizationSituationUI {
 		JScrollPane jScrollPane = new JScrollPane(table);
 		jScrollPane.setBounds(0, 0, 800, 350);
 		contentPane.add(jScrollPane);
-
-		JButton button = new JButton("One-click vaccination");
-		button.setLayout(null);
-		button.setBounds(350, 350, 200, 50);
-		button.setBackground(Color.RED);
-		contentPane.add(button);
-
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				CurrentSituation homepage = new CurrentSituation();
-//				homepage.setVisible(true);
-//				frame.setVisible(false);
-				alertView();
-			}
-		});
-
-		frame.setLayout(null);// cancel the default layout
-		frame.setVisible(true);
-
 	}
 
-	public static void alertView() {
-		Object[] options = { "OK" };
-		JOptionPane.showOptionDialog(null, "Click OK to continue", "FBIWarning: Operation Done.",
-				JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
-	}
+	private static JFrame frame;
+	private static Container contentPane;
+	private static JScrollPane jScrollPane;
+	private static Object[][] tableListDataList = null;
+
 }
