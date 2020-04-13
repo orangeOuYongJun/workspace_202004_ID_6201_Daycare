@@ -90,6 +90,26 @@ public class CSVdata {
 		}
 	}
 
+	public static void writeTeacherFile() {
+
+//		 id firstname lastname age pwd
+
+		try (BufferedWriter out = new BufferedWriter(new FileWriter("teacherCSV.csv"))) {
+
+			for (Teacher teacher : DaycareSingleton.getInstance().getDataStore().getTeacherList()) {
+				String string = String.valueOf(teacher.getTeacherId() + "," + teacher.getFirstName() + ","
+						+ teacher.getLastName() + "," + teacher.getAge() + "," + teacher.getPwd());
+
+				out.write(string);
+				out.newLine();
+			}
+			out.flush();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static List<Teacher> readTeacherData() {
 		// int i = 10;
 		List<Teacher> teachers = new ArrayList<>();

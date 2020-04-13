@@ -89,6 +89,14 @@ public class DaycareSingleton {
 		this.classroomUIFrame = classroomUIFrame;
 	}
 
+	public JFrame getImmuneFrame() {
+		return immuneFrame;
+	}
+
+	public void setImmuneFrame(JFrame immuneFrame) {
+		this.immuneFrame = immuneFrame;
+	}
+
 	private int selectYear;
 	private DataStore dataStore;
 	private int teacherID;
@@ -97,6 +105,7 @@ public class DaycareSingleton {
 	private int userID;
 	private Person currentUserData;
 	private JFrame classroomUIFrame;
+	private JFrame immuneFrame;
 
 	public static enum UserType {
 		STUDENT, TEACHER

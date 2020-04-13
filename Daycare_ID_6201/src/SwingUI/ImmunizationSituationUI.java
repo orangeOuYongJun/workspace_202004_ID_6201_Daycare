@@ -38,6 +38,7 @@ public class ImmunizationSituationUI {
 		frame.setBounds(100, 100, 800, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = frame.getContentPane();
+		DaycareSingleton.getInstance().setImmuneFrame(frame);
 		viewConfig();
 	}
 
@@ -76,9 +77,19 @@ public class ImmunizationSituationUI {
 				alertView();
 			}
 		});
+		
+		buttonMore.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				ModifyPwdController.setupModifyViewController();
+			}
+		});
 
 		frame.setLayout(null);// cancel the default layout
 		frame.setVisible(true);
+		
 	}
 
 	public static void alertView() {
