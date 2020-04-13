@@ -313,7 +313,7 @@ public class RatioRule {
 
 			}
 			groupStudent.clear();
-			if ((i + 1) % 3 == 0) {
+			if ((i + 1) % 2 == 0) {
 				classroomList.add(new Classroom(j + 1, 2, templist));
 				j++;
 				templist.clear();
